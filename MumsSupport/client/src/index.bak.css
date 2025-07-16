@@ -1,0 +1,428 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&family=Bodoni+Moda:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 210 20% 98%;
+  --foreground: 240 10% 3.9%;
+  --muted: 240 4.8% 95.9%;
+  --muted-foreground: 240 3.8% 46.1%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 240 10% 3.9%;
+  --card: 0 0% 100%;
+  --card-foreground: 240 10% 3.9%;
+  --border: 240 5.9% 90%;
+  --input: 240 5.9% 90%;
+  --primary: 340 82% 52%;
+  --primary-foreground: 355 100% 97%;
+  --secondary: 240 4.8% 95.9%;
+  --secondary-foreground: 240 5.9% 10%;
+  --accent: 346 84% 61%;
+  --accent-foreground: 355 100% 97%;
+  --destructive: 0 84.2% 60.2%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 340 82% 60%;
+  --radius: 0.5rem;
+  
+  /* Custom Colors - Pastel Palette */
+  --pink-pastel: 350 100% 88%;
+  --pink-soft: 339 83% 84%; 
+  --pink-light: 340 86% 89%;
+  --pink-lighter: 351 100% 98%;
+  
+  --blue-pastel: 210 100% 88%;
+  --blue-gentle: 239 84% 84%;
+  --blue-light: 240 83% 90%;
+  
+  --green-pastel: 142 72% 88%;
+  --green-gentle: 142 72% 84%;
+  --green-light: 142 72% 90%;
+  
+  --violet-pastel: 270 100% 90%;
+  --violet-gentle: 270 84% 84%;
+  --violet-light: 270 83% 90%;
+  
+  --peach-pastel: 25 100% 90%;
+  --lavender-pastel: 290 100% 90%;
+  --mint-pastel: 160 100% 90%;
+  --sky-pastel: 190 100% 90%;
+  
+  --status-success: 142 72% 87%;
+  --status-warning: 52 97% 90%;
+  --status-alert: 0 83% 85%;
+  --status-sos: 360 91% 74%;
+}
+
+.dark {
+  --background: 240 10% 3.9%;
+  --foreground: 0 0% 98%;
+  --muted: 240 3.7% 15.9%;
+  --muted-foreground: 240 5% 64.9%;
+  --popover: 240 10% 3.9%;
+  --popover-foreground: 0 0% 98%;
+  --card: 240 10% 3.9%;
+  --card-foreground: 0 0% 98%;
+  --border: 240 3.7% 15.9%;
+  --input: 240 3.7% 15.9%;
+  --primary: 340 82% 52%;
+  --primary-foreground: 355 100% 97%;
+  --secondary: 240 3.7% 15.9%;
+  --secondary-foreground: 0 0% 98%;
+  --accent: 346 84% 61%;
+  --accent-foreground: 355 100% 97%;
+  --destructive: 0 62.8% 30.6%;
+  --destructive-foreground: 0 0% 98%;
+  --ring: 240 4.9% 83.9%;
+  --radius: 0.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand', sans-serif;
+  }
+}
+
+@layer utilities {
+  .font-bodoni {
+    font-family: 'Bodoni Moda', serif;
+  }
+  
+  .font-quicksand {
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .font-opensans {
+    font-family: 'Open Sans', sans-serif;
+  }
+  
+  .text-pink-soft {
+    color: hsl(var(--pink-soft));
+  }
+  
+  .bg-pink-soft {
+    background-color: hsl(var(--pink-soft));
+  }
+  
+  .text-blue-gentle {
+    color: hsl(var(--blue-gentle));
+  }
+  
+  .bg-blue-gentle {
+    background-color: hsl(var(--blue-gentle));
+  }
+  
+  .bg-status-sos {
+    background-color: hsl(var(--status-sos));
+  }
+  
+  .border-status-sos {
+    border-color: hsl(var(--status-sos));
+  }
+  
+  .text-status-sos {
+    color: hsl(var(--status-sos));
+  }
+  
+  /* Gradient Backgrounds */
+  .bg-gradient-pink-blue {
+    background: linear-gradient(to right, hsl(var(--blue-gentle)), hsl(var(--pink-soft)));
+  }
+  
+  .bg-gradient-green-blue {
+    background: linear-gradient(to right, hsl(var(--green-pastel)), hsl(var(--blue-pastel)));
+  }
+  
+  .bg-gradient-violet-pink {
+    background: linear-gradient(to right, hsl(var(--violet-pastel)), hsl(var(--pink-pastel)));
+  }
+  
+  .bg-gradient-mint-sky {
+    background: linear-gradient(to right, hsl(var(--mint-pastel)), hsl(var(--sky-pastel)));
+  }
+  
+  .bg-gradient-peach-lavender {
+    background: linear-gradient(to right, hsl(var(--peach-pastel)), hsl(var(--lavender-pastel)));
+  }
+  
+  /* Rainbow Gradients */
+  .bg-gradient-rainbow-pastel {
+    background: linear-gradient(
+      to right,
+      hsl(var(--pink-pastel)),
+      hsl(var(--peach-pastel)),
+      hsl(var(--green-pastel)), 
+      hsl(var(--blue-pastel)),
+      hsl(var(--violet-pastel))
+    );
+  }
+  
+  .bg-gradient-rainbow-soft {
+    background: linear-gradient(
+      to right,
+      hsl(350, 100%, 90%),  /* Soft Red */
+      hsl(35, 100%, 90%),   /* Soft Orange */
+      hsl(60, 100%, 90%),   /* Soft Yellow */
+      hsl(120, 100%, 90%),  /* Soft Green */
+      hsl(200, 100%, 90%),  /* Soft Blue */
+      hsl(270, 100%, 90%)   /* Soft Violet */
+    );
+  }
+  
+  .animate-pulse-slow {
+    animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+  
+  @keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+  }
+  
+  /* Animated rainbow gradient */
+  .bg-gradient-rainbow-animated {
+    background: linear-gradient(
+      to right,
+      hsl(0, 100%, 90%),
+      hsl(60, 100%, 90%),
+      hsl(120, 100%, 90%),
+      hsl(180, 100%, 90%),
+      hsl(240, 100%, 90%),
+      hsl(300, 100%, 90%)
+    );
+    background-size: 400% 100%;
+    animation: rainbow-animation 12s linear infinite;
+  }
+  
+  @keyframes rainbow-animation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+  }
+  
+  .safe-bottom {
+    padding-bottom: env(safe-area-inset-bottom, 20px);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--pink-soft));
+  border-radius: 10px;
+}
+
+/* Clerk Form Styling Overrides */
+@media (max-width: 768px) {
+  .cl-card {
+    width: 100% !important;
+    min-width: 100% !important;
+    max-width: 100% !important;
+  }
+  
+  .cl-form {
+    min-width: 100% !important;
+    width: 100% !important;
+  }
+}
+
+/* Reduce spacing */
+.cl-formFieldRow {
+  margin-bottom: 0.75rem !important;
+}
+
+.cl-formFieldLabel {
+  margin-bottom: 0.25rem !important;
+  font-size: 14px !important;
+}
+
+.cl-formButtonPrimary {
+  margin-top: 0.5rem !important;
+  background-color: hsl(var(--pink-soft)) !important;
+  color: white !important;
+  font-weight: 500 !important;
+  transition: all 0.2s ease !important;
+}
+
+.cl-formButtonPrimary:hover {
+  background-color: hsl(var(--pink-soft) / 0.9) !important;
+}
+
+.cl-footerActionLink, 
+.cl-formFieldAction {
+  color: hsl(var(--pink-soft)) !important;
+}
+
+.cl-formFieldInput, 
+.cl-socialButtonsBlockButton {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 0.375rem !important;
+  padding: 0.35rem 0.5rem !important;
+  width: 100% !important;
+  transition: all 0.2s ease !important;
+  min-height: 36px !important;
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+}
+
+.cl-formFieldInput:focus, 
+.cl-socialButtonsBlockButton:focus {
+  outline: none !important;
+  border-color: hsl(var(--pink-soft)) !important;
+  box-shadow: 0 0 0 2px rgba(246, 173, 202, 0.3) !important;
+}
+
+.cl-phoneInput {
+  border: 1px solid #e2e8f0 !important;
+  border-radius: 0.375rem !important;
+  height: 36px !important;
+}
+
+.cl-phoneInputBox {
+  border: none !important;
+  padding: 0.35rem 0.5rem !important;
+  font-size: 14px !important;
+  line-height: 1.2 !important;
+}
+
+.cl-phoneInputCountry {
+  padding-left: 0.5rem !important;
+  padding-right: 0.5rem !important;
+}
+
+.cl-identityPreviewEditButton {
+  color: hsl(var(--pink-soft)) !important;
+}
+
+/* Theme classes */
+.theme-pink .app-background {
+  background-color: hsl(var(--pink-lighter));
+}
+
+.theme-blue .app-background {
+  background-color: hsl(var(--blue-light));
+}
+
+.theme-green .app-background {
+  background-color: hsl(var(--green-light));
+}
+
+.theme-violet .app-background {
+  background-color: hsl(var(--violet-light));
+}
+
+.theme-peach-lavender .app-background {
+  background: linear-gradient(to bottom right, hsl(var(--peach-pastel)), hsl(var(--lavender-pastel)));
+}
+
+.theme-mint-sky .app-background {
+  background: linear-gradient(to bottom right, hsl(var(--mint-pastel)), hsl(var(--sky-pastel)));
+}
+
+.theme-rainbow-pastel .app-background {
+  background: linear-gradient(
+    to bottom right,
+    hsl(var(--pink-pastel)),
+    hsl(var(--peach-pastel)),
+    hsl(var(--green-pastel)), 
+    hsl(var(--blue-pastel)),
+    hsl(var(--violet-pastel))
+  );
+}
+
+.theme-rainbow-animated .app-background {
+  background: linear-gradient(
+    to bottom right,
+    hsl(0, 100%, 90%),
+    hsl(60, 100%, 90%),
+    hsl(120, 100%, 90%),
+    hsl(180, 100%, 90%),
+    hsl(240, 100%, 90%),
+    hsl(300, 100%, 90%)
+  );
+  background-size: 400% 400%;
+  animation: rainbow-animation 12s linear infinite;
+}
+
+/* Dark mode theme styling */
+.theme-dark-mode {
+  color-scheme: dark;
+}
+
+.theme-dark-mode .app-background,
+.theme-dark-mode header,
+.theme-dark-mode main,
+.theme-dark-mode nav {
+  background-color: hsl(240 10% 3.9%);
+  color: hsl(0 0% 98%);
+}
+
+.theme-dark-mode .bg-white,
+.theme-dark-mode .bg-gray-50,
+.theme-dark-mode .bg-gray-100,
+.theme-dark-mode .bg-pink-50 {
+  background-color: hsl(240 10% 10%) !important;
+  color: hsl(0 0% 98%) !important;
+}
+
+.theme-dark-mode .text-gray-500,
+.theme-dark-mode .text-gray-600,
+.theme-dark-mode .text-gray-700,
+.theme-dark-mode .text-gray-800,
+.theme-dark-mode .text-gray-900 {
+  color: hsl(0 0% 80%) !important;
+}
+
+.theme-dark-mode .border,
+.theme-dark-mode .border-gray-200,
+.theme-dark-mode .border-pink-200 {
+  border-color: hsl(240 3.7% 15.9%) !important;
+}
+
+.theme-dark-mode nav {
+  border-top-color: hsl(240 3.7% 15.9%) !important;
+}
+
+/* Preserving critical colors in dark mode */
+.theme-dark-mode .text-pink-600,
+.theme-dark-mode a.text-pink-600 {
+  color: hsl(340 82% 65%) !important;
+}
+
+.theme-dark-mode .bg-pink-500,
+.theme-dark-mode .hover\:bg-pink-600:hover {
+  background-color: hsl(340 82% 52%) !important;
+}
+
+.theme-dark-mode ::-webkit-scrollbar-track {
+  background: hsl(240 10% 10%);
+}
+
+.theme-dark-mode ::-webkit-scrollbar-thumb {
+  background: hsl(240 5% 26%);
+}
+
+
+/* ✅ Ensure full-height layout and remove top/bottom whitespace */
+html, body, #root {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+}

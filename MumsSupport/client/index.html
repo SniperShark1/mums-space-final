@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
+    <title>Mum's Space - Safe, Supportive, and Strong</title>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyNCIgaGVpZ2h0PSIyNCIgdmlld0JveD0iMCAwIDI0IDI0IiBmaWxsPSJub25lIiBzdHJva2U9IiNGOEI0RDkiIHN0cm9rZS13aWR0aD0iMiIgc3Ryb2tlLWxpbmVjYXA9InJvdW5kIiBzdHJva2UtbGluZWpvaW49InJvdW5kIiBjbGFzcz0ibHVjaWRlIGx1Y2lkZS1mbG93ZXIiPjxwYXRoIGQ9Ik0xMiA3YTUgNSAwIDEgMCAwLTEwIDUgNSAwIDAgMCAwIDEwWiIvPjxwYXRoIGQ9Ik0xMiAyMmE1IDUgMCAxIDAgMC0xMCA1IDUgMCAwIDAgMCAxMFoiLz48cGF0aCBkPSJNNyAxMmE1IDUgMCAxIDAgMC0xMCA1IDUgMCAwIDAgMCAxMFoiLz48cGF0aCBkPSJNMTcgMTJhNSA1IDAgMSAwIDAtMTAgNSA1IDAgMCAwIDAgMTBaIi8+PC9zdmc+" />
+    
+    <!-- More comprehensive polyfill -->
+    <script>
+      window.process = {
+        env: {
+          NODE_ENV: 'development'
+        }
+      };
+      window.global = window;
+      
+      // Error handling to help diagnose white screen
+      window.addEventListener('error', function(event) {
+        console.error('Global error caught:', event.error);
+        
+        // Display error on screen
+        if (document.body) {
+          const errorDiv = document.createElement('div');
+          errorDiv.style.padding = '20px';
+          errorDiv.style.margin = '20px';
+          errorDiv.style.backgroundColor = '#fff0f0';
+          errorDiv.style.border = '1px solid #f3b8b8';
+          errorDiv.style.borderRadius = '4px';
+          errorDiv.style.color = '#d32f2f';
+          errorDiv.style.fontFamily = 'monospace';
+          errorDiv.innerHTML = `<h3>Error Loading App</h3><p>${event.error?.message || 'Unknown error'}</p>`;
+          document.body.prepend(errorDiv);
+        }
+      });
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    
+    <!-- Fallback content if app doesn't load -->
+    <noscript>
+      <div style="padding: 20px; text-align: center;">
+        <h2>JavaScript is required</h2>
+        <p>Please enable JavaScript to use this application.</p>
+      </div>
+    </noscript>
+    
+    <script>
+      // Add a timeout to detect if the app doesn't render
+      setTimeout(function() {
+        const root = document.getElementById('root');
+        if (root && !root.hasChildNodes()) {
+          root.innerHTML = `
+            <div style="padding: 20px; text-align: center; font-family: 'Quicksand', sans-serif;">
+              <h2>Loading Error</h2>
+              <p>The application failed to load. Please check the console for errors.</p>
+              <button onclick="location.reload()">Reload Page</button>
+            </div>
+          `;
+        }
+      }, 5000);
+    </script>
+    
+    <script type="module" src="/src/main.tsx"></script>
+    <script type="text/javascript" src="https://replit.com/public/js/replit-dev-banner.js"></script>
+  </body>
+</html>

@@ -1,0 +1,25 @@
+/* Bulletproof Login Styles */
+.feedback {
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.feedback.loading {
+  background-color: #f0f8ff;
+  border: 1px solid #b8d6f3;
+  color: #0066cc;
+}
+
+.feedback.error {
+  background-color: #fff0f0;
+  border: 1px solid #f3b8b8;
+  color: #d32f2f;
+}
+
+.feedback.success {
+  background-color: #f0fff0;
+  border: 1px solid #b8f3b8;
+  color: #388e3c;
+}
